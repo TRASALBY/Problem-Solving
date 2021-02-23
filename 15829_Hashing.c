@@ -20,7 +20,7 @@ int main(){
     for(int i = 0; i<n;i++ ){
         for(int j = 0; j<26; j++){
             if(arr[i]==alpha[j]){
-                result += pow(31,j);
+                result += pow(31,j)/1234567891;
             }
         }
 
