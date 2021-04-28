@@ -8,7 +8,6 @@ int main(){
     scanf("%d %d", &n, &k);
 
     printf("%d", fact(n)/(fact(k) * fact(n-k)));
-
 }
 
 int fact(int x){
