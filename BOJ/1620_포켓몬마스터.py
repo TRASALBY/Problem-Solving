@@ -1,17 +1,16 @@
-n, m = map(int, input().split())
-Pokédex = []
-for i in range(n):
-    Pokédex.append((i+1,input()))
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+Pokédex1 = {}
+Pokédex2 = {}
+for i in range(1,n+1):
+    name = sys.stdin.readline().rstrip()
+    Pokédex1[i] = name
+    Pokédex2[name] = i
 
 for i in range(m):
-    search = input()
+    search = sys.stdin.readline().rstrip()
     if search.isdecimal():
-        for j in range(n):
-            if Pokédex[j][0] == int(search):
-                print(Pokédex[j][1])
-                break
+        print(Pokédex1[int(search)])
     else:
-        for j in range(n):
-            if Pokédex[j][1] == search:
-                print(Pokédex[j][0])
-                break
+        print(Pokédex2[search])
