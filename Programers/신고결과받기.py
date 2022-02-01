@@ -1,36 +1,26 @@
 def solution(id_list, report, k):
-    reported = [0 for _ in range(len(id_list))]
-    reports = []
-    reporter = [[]for _ in range(len(id_list))]
-    check = 0
-    answer = [0 for _ in range(len(id_list))]
-    for i in range(len(report)):
-        temp = map(str, report[i].split())
-        
-        reports.append(list(temp))
-    for i in range(len(id_list)):
-        for R in reports:
-            if R[0] == id_list[i]:
-                reporter[i].append(R[1])
-        reporter[i] = list(set(reporter[i]))
-    reported_member = sum(reporter,[])
-    for i in range(len(id_list)):
-        if id_list[i] in reported_member:
-            reported[i] = reported_member.count(id_list[i])
-    for i in range(len(id_list)):
-        if reported[i] >= k:
-            reported[i] = 1
-        else:
-            reported[i] = 0
-    
-    for i in range(len(id_list)):
-        for reported_id in reporter[i]:
-            if reported[id_list.index(reported_id)] == 1:
-                answer[i] += 1
+    report_dic = {}
+    reported_dic = {}
+    count_dic = {}
+    n = len(id_list)
+    m = len(report)
+    answer = [0 for _ in range(n)]
+    for id in id_list:
+        report_dic[id] = []
+        reported_dic[id] = []
+        count_dic[id] = 0
+    for i in range(m):
+        a, b = map(str, report[i].split())
+        report_dic[a].append(b)
+        reported_dic[b].append(a)
+    for id in id_list:
+        report_dic[id] = list(set(report_dic[id]))
+        reported_dic[id] = list(set(reported_dic[id]))
+        count_dic[id] = len(reported_dic[id])
+    for id in id_list:
+        if count_dic[id] >= k:
+            for id2 in id_list:
+                if id in report_dic[id2]:
+                    answer[id_list.index(id2)] += 1
         
     return answer
-
-a = ["con", "ryan"]
-b = ["ryan con", "ryan con", "ryan con", "ryan con"]
-c = 3
-print(solution(a,b,c))
