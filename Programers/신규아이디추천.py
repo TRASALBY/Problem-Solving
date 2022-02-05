@@ -1,4 +1,3 @@
-
 def class1(id_list):    
     ch = ['-', '_', '.']
     for i in range(len(id_list)):
@@ -35,8 +34,15 @@ def class4(id_list):
 
 def class5(id_list):
     if len(id_list) >=16:
-        id_list = id_list[:16]
+        id_list = id_list[:15]
         id_list = class3(id_list)
+    return id_list
+
+def class6(id_list):
+    if len(id_list) <=2:
+        last= id_list[-1]
+        while len(id_list) != 3:
+            id_list.append(last)
     return id_list
 
 def solution(new_id):
@@ -49,9 +55,9 @@ def solution(new_id):
     id_list = class2(id_list)
     id_list = class3(id_list)
     id_list = class4(id_list)
-    
+    id_list = class5(id_list)
+    id_list = class6(id_list)
 
     
     return ''.join(id_list)
-
-print(solution("...!@BaT#*..y.abcdefghijklm"))
+                
