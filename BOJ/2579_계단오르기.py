@@ -1,6 +1,4 @@
 import sys
-
-
 n = int(sys.stdin.readline())
 
 dp = [[] for _ in range(n+1)]
