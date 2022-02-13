@@ -1,17 +1,11 @@
 import sys
+read = sys.stdin.readline
 
+N, K = map(int, read().split())
+cache = [0] * (K+1)
 
-N, K = map(int,sys.stdin.readline().split())
-dp = [[] for _ in range(K+1)] 
-
-for i in range(N):
-    w,v = map(int,sys.stdin.readline().split())
-    dp[w].append(v)
-
-    
-
-for i in range(1,K+1):
-    for j in range(1,(i//2)+1):
-        if dp[i] < dp[i-j] + dp[j]:
-            dp[i] = dp[i-j] + dp[j]
-print(dp[-1])
+for _ in range(N):
+    w, v = map(int, read().split())
+    for j in range(K, w-1, -1):
+        cache[j] = max(cache[j], cache[j-w] + v)
+print(cache[-1])
