@@ -11,9 +11,7 @@ answer = []
 
 def dfs(cnt):
     if cnt == M:
-        for i in answer:
-            print(i, end=' ')
-        print()
+        print(*answer)
         return
 
     for i in range(N):
