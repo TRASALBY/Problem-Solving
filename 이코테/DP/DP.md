@@ -9,8 +9,8 @@
 2) 중복되는 부분 문제 (Overlapping Subproblem)
 : 동일한 작은 문제를 반복적으로 해결해야 한다.
 
-피보나치 수열  
-1 1 2 3 5 8 13 ....
+### 피보나치 수열  
+1 1 2 3 5 8 13 ....  
 ![image](https://user-images.githubusercontent.com/54586491/162430072-49b4f0f5-ce3f-481e-bb55-bd40456cc96a.png)
 
 ```python
