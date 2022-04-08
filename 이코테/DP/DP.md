@@ -67,3 +67,19 @@ print(d[n])
 
 + 해당 문제를 그리디, 구현, 완전탐색 등의 아이디어로 해결할 수 있는지 검토 후 풀이가 떠오르지 않는다면 다이나믹 프로그래밍을 고려해 본다.
 + 우선 재귀로 비효율적인 완전 탐색 코드를 작성후 코드를 개선하는 방법을 사용한다.
+
+### 실전문제 개미병사
+
+```python
+n = int(input())
+array = list(map(int, input().split()))
+
+d = [0] * 100
+
+d[0] = array[0]
+d[1] = max(array[0], array[1]) 
+for i in range(2, n):
+    d[i] = max(d[i - 1], d[i - 2] + array[i])
+
+print(d[n - 1])
+```
