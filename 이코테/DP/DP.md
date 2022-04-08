@@ -20,7 +20,7 @@ def fibo(x):
         return 1
     return fibo(x - 1) + fibo(x - 2)
 ```
-![image](https://user-images.githubusercontent.com/54586491/162430355-5931ff45-0749-4437-b456-ee369608e561.png)
+![image](https://user-images.githubusercontent.com/54586491/162430355-5931ff45-0749-4437-b456-ee369608e561.png)  
 중복되는 호출이 너무 많음
 
 ### 다이나믹 프로그래밍 방식
