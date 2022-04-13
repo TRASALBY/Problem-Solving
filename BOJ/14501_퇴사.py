@@ -5,7 +5,7 @@ T = [998 for i in range(N+1)]
 P = [0 for i in range(N+1)]
 for i in range(1,N+1):
     t, p = map(int, sys.stdin.readline().split())
-    if t + i > N:
+    if t + i > N+1:
         T[i] = 999
         continue
     else:
@@ -25,13 +25,9 @@ while(T != temp):
         if T[i] == profit_T:
             
             if 999 in T[i:i+T[i]]:
-                if T[i] + i ==N:
-                    max_P = P[i]
-                    d = i
-                else:
-                    T[i] = 999
-                    max_P = 0
-                    d = 0
+                T[i] = 998
+                max_P = 0
+                d = 0
                 break
             
 

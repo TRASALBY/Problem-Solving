@@ -1,12 +1,26 @@
+import sys
+
+
 t = int(input())
- 
+
+
+
+def fibo(n):
+    if n == 0:
+        cnt[0] +=1
+    elif n == 1:
+        cnt[1] += 1
+    if n != 0 and dp[n] == 0:
+        dp[n] = fibo(n-1) + fibo(n-2)
+        
+    return dp[n]
+        
+
 for _ in range(t):
-    cnt_0 = [1,0]
-    cnt_1 = [0,1]
-    n = int(input())
-    if n>1:
-        for i in range(n-1):
-            cnt_0.append(cnt_1[-1])
-            cnt_1.append(cnt_0[-2]+cnt_1[-1]) 
- 
-    print(cnt_0[n], cnt_1[n])
+    dp = [0] * 41
+    dp[1] = 1
+    cnt = [0,0]
+    test_case = int(sys.stdin.readline())
+    fibo(test_case)
+    print(cnt[0],end=' ')
+    print(cnt[1])
