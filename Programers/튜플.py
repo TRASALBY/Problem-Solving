@@ -1,16 +1,12 @@
 def solution(s):
     answer = []
-    s = s[1:-1]
-    s = s.split('}')
-    num_list = []
-    for i in s:
-        if i == "":
-            s.remove("")
-    for temp in s:
-        temp = temp.strip('{'',')
-        num_list.append(temp)
-        
 
+    s = s.lstrip('{').rstrip('}').split('},{')
+    num_list = []
+    for num in s:
+        num = num.strip("{""}")
+        num_list.append(num)
+        
     for i in range(1,len(num_list)+1):
         for j in num_list:
             j = j.split(',')
