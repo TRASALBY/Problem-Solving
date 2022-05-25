@@ -1,25 +1,28 @@
 def solution(board):
-    answer = 1234
-    board_list = []
-    for i in range(len(board)):
-        start = -1
-        end = -1
-        for j in range(len(board[i])):
-            if start == -1 and board[i][j] == 1:
-                start = j
-            if start != -1 and board[i][j] == 0:
-                end = j -1 
-            if end != -1 and board[i][j] == 1:
-                start == j
-                end = -1
-            if end != -1 and board[i][j] == 0:
-                end = j-1
-            if j == len(board[i])-1:
-                end = j
-            if start != -1 and end != -1:
-                board_list.append([i,start,end])
-                start = -1
-                end = -1
-    return board_list
+    answer = 0
+    height = len(board)
+    width = len(board[0])
 
-solution(	[[0, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [0, 0, 1, 0]])
+    for n in range(1,min(height,width)+1):
+        cnt = 0
+        arr = [1 for _ in range(n)]
+        for i in range(height):
+            for j in range(width):
+                for k in range(0,n):
+
+                    temp = board[i+k][j:j+n] 
+                    if temp == arr:
+                        cnt+=1
+                    else:
+                        break
+                if cnt == n:
+                    answer = pow(cnt,2)
+                    break
+                else:
+                    cnt = 0
+            if cnt == n:
+                break
+            
+    return answer
+
+print(solution(	[[0]]))
