@@ -41,3 +41,4 @@ def solution(expression):
             stack1 = stack2.copy()
         answer = max(abs(int(stack1[0])),answer)
     return answer
+    
