@@ -1,0 +1,38 @@
+def solution(m, n, board):     
+    answer = 0
+    now_board = [[' ' for _ in range(m)] for _ in range(n)]
+    for i in range(n):
+        for j in range(m):
+            now_board[i][j] = board[j][i]
+        now_board[i].reverse()
+
+    now_block = m*n
+    while True:
+        pop_list = set()
+        for i in range(len(now_board)):
+            for j in range(len(now_board[i])):
+                a,b,c,d = i, j, i+1,j+1
+
+                if -1 < a < n and -1 < c < n:
+                    if -1 < b < min(len(now_board[a]),len(now_board[c])) and -1 < d < min(len(now_board[a]),len(now_board[c])):
+                    
+                        if [now_board[a][b],now_board[a][d],now_board[c][b],now_board[c][d]] == [now_board[a][b]] * 4 :
+                            pop_list.add((a,b))
+                            pop_list.add((a,d))
+                            pop_list.add((c,b))
+                            pop_list.add((c,d))
+                
+                        
+        if len(pop_list) == 0:
+            break
+        for ind in pop_list:
+            now_board[ind[0]][ind[1]] = ''
+
+        now_block = 0
+        for k in range(n):
+            now_board[k] = list(''.join(now_board[k]))
+            now_block += len(now_board[k])
+        
+    answer = m * n - now_block
+    
+    return answer
