@@ -17,7 +17,7 @@ def prime_list(n):
     # 소수 목록 산출
     return [i for i in range(2, n) if sieve[i] == True]
 
-answer = prime_list(n)
+answer = prime_list(n+1)
 
 for i in answer:
     if i < m:
