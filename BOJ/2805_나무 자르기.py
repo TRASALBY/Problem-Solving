@@ -4,12 +4,9 @@ input = sys.stdin.readline
 
 n,m = map(int,input().split())
 
-
-
-
 tree = list(map(int,input().split()))
 
-first, last = 0, sum(tree)
+first, last = 1, sum(tree)
 while first<=last:
     mid = (first + last) // 2
     cnt = 0
